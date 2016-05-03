@@ -1,6 +1,19 @@
 <template name="booking">
-    <li>
-        <button class="delete">&times;</button>
-        <span class="text">{{createdAt}} <br/> {{username}}: <strong>{{text}}</strong></span>
-    </li>
+    <tr class="booking">
+        <td class="date">
+            {{prettifyDate createdAt}}
+        </td>
+        <td>
+            {{username}}
+        </td>
+        <td>
+            {{#if deleted}}
+                <button class="restore">&#9851;</button>
+            {{else}}
+                <button class="delete">&#9747;</button>
+            {{/if}}
+
+            <span class="{{#if deleted}}deleted{{/if}}"><strong>{{text}}</strong></span>
+        </td>
+    </tr>
 </template>

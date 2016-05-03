@@ -58,19 +58,22 @@ h1, h2 {
     color: #eeeeee;
 }
 
-.bookingCategory {
+.mainArea {
     margin: 20px;
+}
+
+.bookingCategory {
     padding: 20px;
     color: white;
     text-align: center;
 }
 
 #bookingCategory1 {
-    background-color: blue;
+    background-color: red;
 }
 
 #bookingCategory2 {
-    background-color: red;
+    background-color: blue;
 }
 
 #bookingCategory3 {
@@ -88,72 +91,39 @@ h1, h2 {
     font-style: italic;
 }
 
-form {
-    margin-top: 10px;
-    margin-bottom: -10px;
-    position: relative;
+.bookings {
+    margin-top: 20px;
+    width: 100%
 }
 
-.new-task input {
-    box-sizing: border-box;
-    padding: 10px 0;
-    background: transparent;
-    border: none;
-    width: 100%;
-    padding-right: 80px;
-    font-size: 1em;
+.bookings .booking td {
+    padding-top: 10px;
 }
 
-.new-task input:focus{
-    outline: 0;
+.bookings .bookingLog td {
+    font-size: 0.7rem;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    background: white;
+.bookings .bookingLog td.date {
+    padding-left: 20px;
 }
 
-.delete {
+
+.delete, .restore {
     float: right;
     font-weight: bold;
     background: none;
     font-size: 1em;
     border: none;
     position: relative;
+    cursor: pointer;
 }
 
-li {
-    position: relative;
-    list-style: none;
-    padding: 15px;
-    border-bottom: #eee solid 1px;
-}
-
-li .text {
-    margin-left: 10px;
-}
-
-li.checked {
-    color: #888;
-}
-
-li.checked .text {
+.deleted {
     text-decoration: line-through;
+    color: #ddd;
 }
 
-li.private {
-    background: #eee;
-    border-color: #ddd;
-}
-
-header .hide-completed {
-    float: right;
-}
-
-.toggle-private {
-    margin-left: 5px;
-}
 
 @media (max-width: 600px) {
     li {

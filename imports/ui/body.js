@@ -1,8 +1,9 @@
 import { Template } from 'meteor/templating';
 
-import { BookingLog } from '../api/a_bookingLog.js';
+import { BookingLog } from '../api/a_booking.js';
 
 import './logEntry';
+import './bookingLog';
 import './body.html';
 
 
@@ -12,16 +13,16 @@ Template.body.onCreated(function bodyOnCreated() {
 
 Template.body.helpers({
     log() {
-        return BookingLog.find({}, { sort: { createdAt: -1 } });
+        return BookingLog.find({type: "sold"}, { sort: { createdAt: -1 } });
     },
     remainingCategory1() {
-        return 30-BookingLog.find({text: "Kategorie 1"}).count();
+        return 80-BookingLog.find( {$and: [{category: "Kategorie 1"}, {type: "sold"}, {deleted: false}]}).count();
     },
     remainingCategory2() {
-        return 80-BookingLog.find({text: "Kategorie 1"}).count();
+        return 180-BookingLog.find( {$and: [{category: "Kategorie 2"}, {type: "sold"}, {deleted: false}]}).count();
     },
     remainingCategory3() {
-        return 120-BookingLog.find({text: "Kategorie 1"}).count();
+        return 40-BookingLog.find( {$and: [{category: "Empore"}, {type: "sold"}, {deleted: false}]}).count();
     },
 });
 
@@ -31,21 +32,21 @@ Template.body.events({
         // Prevent default browser form submit
         event.preventDefault();
         // Insert a task into the collection
-        Meteor.call('bookingLog.insert', "Kategorie 1");
+        Meteor.call('booking.add', "Kategorie 1");
     },
 
     'click #bookingCategory2'(event) {
         // Prevent default browser form submit
         event.preventDefault();
         // Insert a task into the collection
-        Meteor.call('bookingLog.insert', "Kategorie 2");
+        Meteor.call('booking.add', "Kategorie 2");
     },
 
     'click #bookingCategory3'(event) {
         // Prevent default browser form submit
         event.preventDefault();
         // Insert a task into the collection
-        Meteor.call('bookingLog.insert', "Kategorie 3");
+        Meteor.call('booking.add', "Empore");
     },
 
 

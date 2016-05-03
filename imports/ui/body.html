@@ -8,28 +8,30 @@
 
     </header>
 
-    <div>
-        <div id="bookingCategory1" class="bookingCategory clickable" >
-            <h1>Preiskategorie 1</h1>
-            <div class="bookingCategoryPrice">29 €</div>
-            <div class="bookingCategoryRemaining">{{remainingCategory1}} Plätze</div>
-        </div>
-        <div id="bookingCategory2" class="bookingCategory clickable" >
-            <h1>Preiskategorie 2</h1>
-            <div class="bookingCategoryPrice">23 €</div>
-            <div class="bookingCategoryRemaining">{{remainingCategory2}} Plätze</div>
-        </div>
-        <div id="bookingCategory3" class="bookingCategory clickable" >
-            <h1>Preiskategorie 3</h1>
-            <div class="bookingCategoryPrice">18 €</div>
-            <div class="bookingCategoryRemaining">{{remainingCategory3}} Plätze</div>
-        </div>
-    </div>
+    <div class = "mainArea">
 
-    <ul>
-        {{#each log}}
-            {{> booking}}
-        {{/each}}
-    </ul>
+        <div>
+            <div id="bookingCategory1" class="bookingCategory clickable" >
+                <h1>Kategorie 1 / Reihe 1-5 / 29 €</h1>
+                <div class="bookingCategoryRemaining">{{remainingCategory1}} Plätze</div>
+            </div>
+            <div id="bookingCategory2" class="bookingCategory clickable" >
+                <h1>Kategorie 2 / Reihe 6-13 / 19 €</h1>
+                <div class="bookingCategoryRemaining">{{remainingCategory2}} Plätze</div>
+            </div>
+            <div id="bookingCategory3" class="bookingCategory clickable" >
+                <h1>Kategorie 3 / Empore / 18 €</h1>
+                <div class="bookingCategoryRemaining">{{remainingCategory3}} Plätze</div>
+            </div>
+        </div>
+
+        <table class="bookings">
+            {{#each log}}
+                {{> booking}}
+                {{> bookingLog}}
+            {{/each}}
+        </table>
+
+    </div>
 </div>
 </body>

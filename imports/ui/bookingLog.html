@@ -1,0 +1,19 @@
+<template name="bookingLog">
+    {{#each log}}
+        {{> bookingLogEntry}}
+    {{/each}}
+</template>
+
+<template name="bookingLogEntry">
+    <tr class="bookingLog">
+        <td class="date">
+            {{prettifyDate createdAt}}
+        </td>
+        <td>
+            {{username}}
+        </td>
+        <td>
+            {{text}}
+        </td>
+    </tr>
+</template>
