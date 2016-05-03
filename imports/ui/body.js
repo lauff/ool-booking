@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import { Log } from '../api/log.js';
+import { BookingLog } from '../api/log.js';
 
 import './log';
 import './body.html';
@@ -12,7 +12,7 @@ Template.body.onCreated(function bodyOnCreated() {
 
 Template.body.helpers({
     log() {
-        return Log.find({}, { sort: { createdAt: -1 } });
+        return BookingLog.find({}, { sort: { createdAt: -1 } });
     },
 });
 
@@ -26,7 +26,7 @@ Template.body.events({
         const text = target.text.value;
 
         // Insert a task into the collection
-        Meteor.call('log.insert', text);
+        Meteor.call('bookingLog.insert', text);
 
         // Clear form
         target.text.value = '';

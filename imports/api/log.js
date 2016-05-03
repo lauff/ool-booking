@@ -2,17 +2,17 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
-export const Log = new Mongo.Collection('log');
+export const BookingLog = new Mongo.Collection('bookingLog');
 
 if (Meteor.isServer) {
     // This code only runs on the server
     Meteor.publish('log', function tasksPublication() {
-        return Log.find();
+        return BookingLog.find();
     });
 }
 
 Meteor.methods({
-    'tasks.insert'(text) {
+    'bookingLog.insert'(text) {
         check(text, String);
 
         // Make sure the user is logged in before inserting a task
@@ -20,22 +20,22 @@ Meteor.methods({
             throw new Meteor.Error('not-authorized');
         }
 
-        Log.insert({
+        BookingLog.insert({
             text,
             createdAt: new Date(),
             owner: this.userId,
             username: Meteor.users.findOne(this.userId).username,
         });
     },
-    'tasks.remove'(taskId) {
+    'bookingLog.remove'(taskId) {
         check(taskId, String);
 
-        Log.remove(taskId);
+        BookingLog.remove(taskId);
     },
-    'tasks.setChecked'(taskId, setChecked) {
+    'bookingLog.setChecked'(taskId, setChecked) {
         check(taskId, String);
         check(setChecked, Boolean);
 
-        Log.update(taskId, { $set: { checked: setChecked } });
+        BookingLog.update(taskId, { $set: { checked: setChecked } });
     },
 });

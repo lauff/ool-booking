@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import { Log } from '../api/log.js';
+import { BookingLog } from '../api/log.js';
 
 import './log.html';
 
