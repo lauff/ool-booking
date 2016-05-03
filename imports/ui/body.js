@@ -22,7 +22,7 @@ Template.body.helpers({
         return 180-BookingLog.find( {$and: [{category: "Kategorie 2"}, {type: "sold"}, {deleted: false}]}).count();
     },
     remainingCategory3() {
-        return 40-BookingLog.find( {$and: [{category: "Empore"}, {type: "sold"}, {deleted: false}]}).count();
+        return 40-BookingLog.find( {$and: [{category: "Kategorie 3"}, {type: "sold"}, {deleted: false}]}).count();
     },
 });
 
@@ -46,7 +46,7 @@ Template.body.events({
         // Prevent default browser form submit
         event.preventDefault();
         // Insert a task into the collection
-        Meteor.call('booking.add', "Empore");
+        Meteor.call('booking.add', "Kategorie 3");
     },
 
 
