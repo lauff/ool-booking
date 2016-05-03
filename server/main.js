@@ -1,4 +1,4 @@
-import '../imports/api/log.js';
+import '../imports/api/a_bookingLog.js';
 
 Meteor.startup(() => {
   // code to run on server at startup

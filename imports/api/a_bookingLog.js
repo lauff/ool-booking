@@ -21,9 +21,8 @@ Meteor.methods({
         }
 
         BookingLog.insert({
-            text,
+            text: text,
             createdAt: new Date(),
-            owner: this.userId,
             username: Meteor.users.findOne(this.userId).username,
         });
     },
@@ -31,11 +30,5 @@ Meteor.methods({
         check(taskId, String);
 
         BookingLog.remove(taskId);
-    },
-    'bookingLog.setChecked'(taskId, setChecked) {
-        check(taskId, String);
-        check(setChecked, Boolean);
-
-        BookingLog.update(taskId, { $set: { checked: setChecked } });
     },
 });

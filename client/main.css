@@ -3,7 +3,7 @@
 body {
     font-family: sans-serif;
     background-color: #315481;
-    background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+    background-image: linear-gradient(to bottom, #CC0034, #7D0034 100%);
     background-attachment: fixed;
 
     position: absolute;
@@ -27,7 +27,7 @@ body {
 
 header {
     background: #d2edf4;
-    background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+    background-image: linear-gradient(to bottom, #CC0034, #7D0034 100%);
     padding: 20px 15px 15px 15px;
     position: relative;
 }
@@ -38,12 +38,54 @@ header {
     right: 0;
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 h1 {
-    font-size: 1.5em;
+    font-size: 1.3em;
+}
+
+h2 {
+    font-size: 1.7em;
+}
+
+h1, h2 {
     margin: 0;
     margin-bottom: 10px;
-    display: inline-block;
     margin-right: 1em;
+    text-align: center;
+    color: #eeeeee;
+}
+
+.bookingCategory {
+    margin: 20px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+#bookingCategory1 {
+    background-color: blue;
+}
+
+#bookingCategory2 {
+    background-color: red;
+}
+
+#bookingCategory3 {
+    background-color: green;
+}
+
+.bookingCategoryPrice {
+    marging: 5px;
+    font-size: 1.5rem;
+}
+
+.bookingCategoryRemaining {
+    marging: 5px;
+    font-size: 2rem;
+    font-style: italic;
 }
 
 form {
